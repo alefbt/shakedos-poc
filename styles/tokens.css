@@ -1,0 +1,119 @@
+/* ============================================================
+   שקד פתרונות פדגוגיים — Design Tokens
+   חומרי לימוד בהיסטוריה ובאזרחות לחמ"ד
+   ============================================================ */
+
+:root {
+  /* ---------- צבעי מותג ---------- */
+  /* כחול-עמוד אקדמי */
+  --brand-900: #14283f;
+  --brand-800: #1a3251;
+  --brand-700: #1e3a5f;   /* צבע מותג ראשי */
+  --brand-600: #2a4f7c;
+  --brand-500: #386698;
+  --brand-400: #5b85b3;
+  --brand-300: #93b1d0;
+  --brand-200: #c7d8e8;
+  --brand-100: #e6eef6;
+  --brand-50:  #f2f7fb;
+
+  /* ---------- CTA / מבטא ענבר-זהב חם ---------- */
+  --accent-700: #b97e16;
+  --accent-600: #d49321;
+  --accent-500: #e8a72e;  /* CTA ראשי */
+  --accent-400: #f0bb56;
+  --accent-300: #f6d089;
+  --accent-200: #fbe6bd;
+  --accent-100: #fdf3df;
+  --accent-ink: #875c0c;  /* ענבר כהה לטקסט על רקע בהיר — WCAG AA */
+
+  /* ---------- ניטרליים / אוף-וויט ---------- */
+  --bg:          #fbfaf7;  /* רקע אוף-וויט נקי */
+  --surface:     #ffffff;
+  --surface-alt: #f4f2ec;
+  --ink-900:     #1a1f26;  /* טקסט ראשי */
+  --ink-700:     #3a424d;  /* טקסט גוף */
+  --ink-500:     #5e6975;  /* טקסט משני */
+  --ink-400:     #6b7480;  /* טקסט מעומעם — WCAG AA על רקע בהיר */
+  --line:        #e4e0d6;  /* קווי הפרדה */
+  --line-strong: #d2cdbf;
+
+  /* ---------- מצבי משוב ---------- */
+  --success: #2f8a5b;
+  --warning: #cf8a1a;
+  --danger:  #c1453b;
+  --info:    var(--brand-500);
+
+  /* ---------- טיפוגרפיה ---------- */
+  --font-head: "Heebo", "Assistant", system-ui, sans-serif;
+  --font-body: "Assistant", "Heebo", system-ui, sans-serif;
+
+  --fs-display: clamp(2.5rem, 1.6rem + 4.5vw, 4.5rem);
+  --fs-h1:      clamp(2rem, 1.4rem + 3vw, 3.25rem);
+  --fs-h2:      clamp(1.6rem, 1.2rem + 2vw, 2.4rem);
+  --fs-h3:      clamp(1.3rem, 1.1rem + 1vw, 1.7rem);
+  --fs-h4:      clamp(1.1rem, 1rem + 0.5vw, 1.3rem);
+  --fs-lead:    clamp(1.125rem, 1.05rem + 0.5vw, 1.375rem);
+  --fs-body:    1.0625rem;   /* ~17px */
+  --fs-sm:      0.9375rem;
+  --fs-xs:      0.8125rem;
+
+  --lh-tight:  1.2;
+  --lh-snug:   1.35;
+  --lh-body:   1.6;
+  --lh-loose:  1.75;
+
+  --fw-light:    300;
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+  --fw-extra:    800;
+
+  /* ---------- מרווחים (8px base) ---------- */
+  --sp-1:  0.25rem;
+  --sp-2:  0.5rem;
+  --sp-3:  0.75rem;
+  --sp-4:  1rem;
+  --sp-5:  1.5rem;
+  --sp-6:  2rem;
+  --sp-7:  2.5rem;
+  --sp-8:  3rem;
+  --sp-9:  4rem;
+  --sp-10: 5rem;
+  --sp-11: 6rem;
+  --sp-12: 8rem;
+
+  /* ---------- רוחב פריסה ---------- */
+  --container:      1200px;
+  --container-wide: 1360px;
+  --container-text: 760px;
+  --gutter: clamp(1.25rem, 0.8rem + 2.5vw, 2.5rem);
+
+  /* ---------- פינות מעוגלות ---------- */
+  --r-xs: 6px;
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+  --r-pill: 999px;
+
+  /* ---------- צללים רכים ---------- */
+  --shadow-xs: 0 1px 2px rgba(20, 40, 63, 0.06);
+  --shadow-sm: 0 2px 8px rgba(20, 40, 63, 0.07);
+  --shadow-md: 0 8px 24px rgba(20, 40, 63, 0.09);
+  --shadow-lg: 0 18px 48px rgba(20, 40, 63, 0.12);
+  --shadow-accent: 0 10px 28px rgba(232, 167, 46, 0.28);
+
+  /* ---------- מעברים ---------- */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --t-fast: 140ms;
+  --t-med:  220ms;
+  --t-slow: 360ms;
+
+  /* ---------- שכבות ---------- */
+  --z-header: 100;
+  --z-overlay: 200;
+  --z-modal: 300;
+}

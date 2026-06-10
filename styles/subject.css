@@ -1,0 +1,186 @@
+/* ============================================================
+   שקד — Subject pages (אזרחות / היסטוריה)
+   Alert banner · BLUF · chapter cards · CTA band
+   ============================================================ */
+
+/* ---------- באנר אזהרה ---------- */
+.alert-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  background: var(--accent-100);
+  border: 1px solid var(--accent-300);
+  border-radius: var(--r-md);
+  padding: var(--sp-4) var(--sp-5);
+  color: var(--accent-ink);
+  font-weight: var(--fw-semibold);
+}
+.alert-banner svg { flex: none; width: 24px; height: 24px; margin-top: 1px; }
+.alert-banner p { color: #875c0c; line-height: var(--lh-snug); }
+
+/* ---------- BLUF ---------- */
+.subject-head { padding-block: clamp(var(--sp-7), 7vw, var(--sp-9)) var(--sp-6); }
+.subject-head__inner { max-width: 880px; }
+.subject-head .eyebrow { margin-bottom: var(--sp-3); display: block; }
+.subject-head h1 { font-size: var(--fs-h1); margin-bottom: var(--sp-4); }
+.subject-bluf {
+  font-size: var(--fs-lead);
+  line-height: var(--lh-snug);
+  color: var(--ink-700);
+  max-width: 62ch;
+  border-inline-start: 4px solid var(--accent-500);
+  padding-inline-start: var(--sp-4);
+}
+.subject-bluf strong { color: var(--brand-700); font-weight: var(--fw-bold); }
+
+/* ---------- כרטיסי פרקים ---------- */
+.chapters {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-5);
+}
+@media (max-width: 720px) { .chapters { grid-template-columns: 1fr; } }
+
+.chapter-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-6);
+}
+.chapter-card__top {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+}
+.chapter-card__num {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 52px; height: 52px;
+  border-radius: var(--r-md);
+  background: var(--brand-700);
+  color: #fff;
+  font-family: var(--font-head);
+  font-weight: var(--fw-bold);
+  font-size: 1.4rem;
+  box-shadow: var(--shadow-sm);
+}
+.chapter-card h3 { font-size: var(--fs-h3); line-height: var(--lh-snug); }
+.chapter-card p { color: var(--ink-700); line-height: var(--lh-body); }
+
+/* ---------- רצועת CTA ---------- */
+.cta-band {
+  margin-top: var(--sp-8);
+  background: var(--brand-700);
+  color: #eaf1f8;
+  border-radius: var(--r-xl);
+  padding: clamp(var(--sp-6), 5vw, var(--sp-8));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-6);
+  flex-wrap: wrap;
+}
+.cta-band__text { max-width: 52ch; }
+.cta-band__text h2 { color: #fff; font-size: var(--fs-h2); margin-bottom: var(--sp-2); }
+.cta-band__text p { color: #c9d6e6; font-size: var(--fs-lead); line-height: var(--lh-snug); }
+.cta-band__actions { display: flex; gap: var(--sp-3); flex-wrap: wrap; }
+.cta-band .btn--ghost {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255,255,255,0.4);
+}
+.cta-band .btn--ghost:hover { background: rgba(255,255,255,0.1); color: #fff; border-color: #fff; }
+
+/* ---------- כרטיסי משאב (היסטוריה) ---------- */
+.resources {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-5);
+}
+@media (max-width: 880px) { .resources { grid-template-columns: 1fr; } }
+
+.resource-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  padding: var(--sp-6);
+}
+.resource-card__icon {
+  display: grid;
+  place-items: center;
+  width: 52px; height: 52px;
+  border-radius: var(--r-md);
+  background: var(--brand-100);
+  color: var(--brand-700);
+  flex: none;
+}
+.resource-card__icon svg { width: 28px; height: 28px; }
+.resource-card h3 { font-size: var(--fs-h3); line-height: var(--lh-snug); }
+.resource-card p { color: var(--ink-700); line-height: var(--lh-body); font-size: var(--fs-sm); flex: 1; }
+.resource-card .btn { align-self: flex-start; }
+.btn-download svg { width: 20px; height: 20px; }
+
+/* ---------- רצועת היילייט (חדש + חוברת חינם) ---------- */
+.highlight-band {
+  margin-top: var(--sp-8);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-5);
+}
+@media (max-width: 760px) { .highlight-band { grid-template-columns: 1fr; } }
+
+.highlight-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-7);
+  border-radius: var(--r-xl);
+}
+.highlight-card--new { background: var(--brand-700); color: #eaf1f8; }
+.highlight-card--new h3 { color: #fff; font-size: var(--fs-h3); }
+.highlight-card--new p { color: #c9d6e6; }
+.highlight-card--free { background: var(--accent-100); border: 1px solid var(--accent-300); }
+.highlight-card--free h3 { color: var(--accent-700); font-size: var(--fs-h3); }
+.highlight-card--free p { color: #875c0c; }
+.highlight-card .tag { align-self: flex-start; }
+.highlight-card__actions { margin-top: auto; padding-top: var(--sp-2); display: flex; gap: var(--sp-3); flex-wrap: wrap; }
+.highlight-card--new .btn--ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,0.4); }
+.highlight-card--new .btn--ghost:hover { background: rgba(255,255,255,0.1); color: #fff; border-color: #fff; }
+
+/* ---------- אקורדיון נגיש ---------- */
+.accordion { max-width: var(--container-text); margin-inline: auto; }
+.accordion__item {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  margin-bottom: var(--sp-3);
+  overflow: hidden;
+}
+.accordion__item[open] { box-shadow: var(--shadow-sm); border-color: var(--brand-200); }
+.accordion__q {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  padding: var(--sp-4) var(--sp-5);
+  font-family: var(--font-head);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-h4);
+  color: var(--ink-900);
+}
+.accordion__q::-webkit-details-marker { display: none; }
+.accordion__q .chev {
+  flex: none; width: 22px; height: 22px;
+  color: var(--brand-600);
+  transition: transform var(--t-med) var(--ease);
+}
+.accordion__item[open] .accordion__q .chev { transform: rotate(180deg); }
+.accordion__a {
+  padding: 0 var(--sp-5) var(--sp-5);
+  color: var(--ink-700);
+  line-height: var(--lh-loose);
+}
+.accordion__a strong { color: var(--brand-700); }

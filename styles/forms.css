@@ -1,0 +1,179 @@
+/* ============================================================
+   שקד — טפסים (עמוד הזמנה) + עמוד אודות
+   ============================================================ */
+
+/* ---------- פריסת עמוד הזמנה ---------- */
+.order-layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: var(--sp-7);
+  align-items: start;
+}
+@media (max-width: 880px) { .order-layout { grid-template-columns: 1fr; } }
+
+/* ---------- טופס ---------- */
+.form-card { padding: clamp(var(--sp-5), 4vw, var(--sp-7)); }
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-5);
+}
+.form-field--full { grid-column: 1 / -1; }
+@media (max-width: 560px) { .form-grid { grid-template-columns: 1fr; } }
+
+.form-field { display: flex; flex-direction: column; gap: var(--sp-2); }
+.form-label {
+  font-family: var(--font-head);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--ink-900);
+}
+.form-label .req { color: var(--danger); margin-inline-start: 2px; }
+.form-hint { font-size: var(--fs-xs); color: var(--ink-500); }
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--ink-900);
+  background: var(--surface);
+  border: 1.5px solid var(--line-strong);
+  border-radius: var(--r-md);
+  padding: var(--sp-3) var(--sp-4);
+  transition: border-color var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
+}
+.input::placeholder, .textarea::placeholder { color: var(--ink-400); }
+.input:hover, .select:hover, .textarea:hover { border-color: var(--brand-400); }
+.input:focus, .select:focus, .textarea:focus {
+  outline: none;
+  border-color: var(--brand-600);
+  box-shadow: 0 0 0 3px var(--brand-100);
+}
+.textarea { resize: vertical; min-height: 110px; }
+.select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='none' stroke='%235e6975' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 8l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: left var(--sp-4) center;
+  padding-inline-start: var(--sp-8);
+}
+
+/* מצב שגיאה */
+.input[aria-invalid="true"],
+.select[aria-invalid="true"],
+.textarea[aria-invalid="true"] {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 3px #f7dcd9;
+}
+.field-error {
+  display: none;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--danger);
+}
+.field-error.is-visible { display: flex; }
+.field-error svg { flex: none; width: 16px; height: 16px; }
+
+.form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+  margin-top: var(--sp-2);
+}
+.form-actions .privacy-note { font-size: var(--fs-xs); color: var(--ink-400); max-width: 40ch; }
+
+/* הודעת הצלחה */
+.form-success {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--sp-3);
+  padding: clamp(var(--sp-6), 5vw, var(--sp-8));
+}
+.form-success.is-visible { display: flex; }
+.form-success__icon {
+  display: grid; place-items: center;
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: #dcefe3;
+  color: var(--success);
+}
+.form-success__icon svg { width: 34px; height: 34px; }
+.form-success h2 { font-size: var(--fs-h2); }
+.form-success p { color: var(--ink-500); max-width: 44ch; }
+
+/* סיכום שגיאות עליון */
+.form-errsummary {
+  display: none;
+  gap: var(--sp-2);
+  background: #f7dcd9;
+  border: 1px solid #e3a9a2;
+  border-radius: var(--r-md);
+  padding: var(--sp-4) var(--sp-5);
+  margin-bottom: var(--sp-5);
+  color: #9c352c;
+}
+.form-errsummary.is-visible { display: flex; }
+.form-errsummary svg { flex: none; width: 22px; height: 22px; margin-top: 2px; }
+.form-errsummary a { color: #9c352c; font-weight: var(--fw-semibold); text-decoration: underline; }
+
+/* ---------- כרטיס צד: מה אפשר להזמין ---------- */
+.order-aside { position: sticky; top: 92px; display: grid; gap: var(--sp-5); }
+@media (max-width: 880px) { .order-aside { position: static; } }
+.order-summary { padding: var(--sp-6); }
+.order-summary h2 { font-size: var(--fs-h4); margin-bottom: var(--sp-4); }
+.order-summary ul { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--sp-3); }
+.order-summary li {
+  display: flex; align-items: flex-start; gap: var(--sp-3);
+  font-size: var(--fs-sm); color: var(--ink-700); line-height: var(--lh-snug);
+}
+.order-summary li svg { flex: none; width: 20px; height: 20px; color: var(--accent-600); margin-top: 2px; }
+.order-contact { padding: var(--sp-6); background: var(--brand-50); border-color: var(--brand-200); }
+.order-contact h2 { font-size: var(--fs-h4); margin-bottom: var(--sp-3); }
+.order-contact p { font-size: var(--fs-sm); color: var(--ink-700); margin-bottom: var(--sp-2); }
+.order-contact a { font-weight: var(--fw-semibold); }
+
+/* ============================================================
+   עמוד אודות
+   ============================================================ */
+.about-prose { max-width: var(--container-text); margin-inline: auto; }
+.about-prose > * + * { margin-top: var(--sp-5); }
+.about-prose p { font-size: var(--fs-lead); line-height: var(--lh-loose); color: var(--ink-700); }
+.about-prose .lead-first { font-size: var(--fs-h3); font-weight: var(--fw-regular); color: var(--ink-900); line-height: var(--lh-snug); }
+
+.about-values {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-5);
+  margin-top: var(--sp-7);
+}
+@media (max-width: 760px) { .about-values { grid-template-columns: 1fr; } }
+.value-card { padding: var(--sp-6); }
+.value-card__icon {
+  display: grid; place-items: center;
+  width: 48px; height: 48px;
+  border-radius: var(--r-md);
+  background: var(--brand-100); color: var(--brand-700);
+  margin-bottom: var(--sp-4);
+}
+.value-card__icon svg { width: 26px; height: 26px; }
+.value-card h3 { font-size: var(--fs-h4); margin-bottom: var(--sp-2); }
+.value-card p { font-size: var(--fs-sm); color: var(--ink-500); line-height: var(--lh-body); }
+
+/* הצהרת נגישות */
+.a11y-statement {
+  max-width: var(--container-text);
+  margin-inline: auto;
+  scroll-margin-top: 100px;
+}
+.a11y-statement h2 { font-size: var(--fs-h3); margin-bottom: var(--sp-4); }
+.a11y-statement p { margin-bottom: var(--sp-3); line-height: var(--lh-loose); }
+.a11y-statement ul { padding-inline-start: 1.2em; margin-bottom: var(--sp-3); display: grid; gap: var(--sp-2); }
+.a11y-statement li { line-height: var(--lh-body); }
